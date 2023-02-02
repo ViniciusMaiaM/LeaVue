@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input and Data Binding</title>
+    <script src="https://unpkg.com/vue@next" defer></script> 
+    <script src="src/app.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <form id="app-form">
+            <!-- v-model cria uma interligação entre os dados e o elemento de input -->
+            <!-- v-on executa uma ação apartir de um evento -->
+            <input type="text" v-model="input_name" placeholder="Type your name">
+            <input type="submit" value="Submit" v-on:click="submitForm">
+        </form>
+        <p>Your name is: {{ name }}</p>
+        <p>Data binding: {{ input_name }}</p>
+        <!-- Dessa Maneira ele já replica sem a necessidade do evento -->
+    </div>
+</body>
+</html>
