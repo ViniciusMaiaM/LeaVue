@@ -19,6 +19,13 @@
             setTimeout(() =>{
                 this.name = 'Test'
             }, 2000);
+
+            this.lifeCycle();
+        },
+        methods: {
+            lifeCycle() {
+                alert("Array!");
+            }
         }
     }
 </script>
