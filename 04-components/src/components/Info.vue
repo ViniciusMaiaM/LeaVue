@@ -32,7 +32,7 @@
                 email: 'viniciusmaiamarinho1@gmail.com',
                 meu_link: 'https://google.com',
                 //v-bind faz ligação entre um dado dinâmico e o que está no template
-                button_text: 'Show email'
+                button_text: 'Hide email'
             }
         },
         methods: {
