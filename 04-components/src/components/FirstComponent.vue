@@ -4,15 +4,19 @@
         <h1>Hello Vue!</h1>
         <p>My name is {{ name }}, work as a {{ profission }}</p>
         <MultiplesEvents />
+        <Reuse />
     </div>
 </template>
 
 <script>
     import MultiplesEvents from './MultiplesEvents.vue';
+    import Reuse from './Reuse.vue';
+
     export default{
         name: 'FirstComponent',
         components: {
-            MultiplesEvents
+            MultiplesEvents,
+            Reuse
         },
         data() {
             return{
