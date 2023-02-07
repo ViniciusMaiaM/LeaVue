@@ -3,12 +3,17 @@
     <div>
         <h1>Hello Vue!</h1>
         <p>My name is {{ name }}, work as a {{ profission }}</p>
+        <MultiplesEvents />
     </div>
 </template>
 
 <script>
+    import MultiplesEvents from './MultiplesEvents.vue';
     export default{
         name: 'FirstComponent',
+        components: {
+            MultiplesEvents
+        },
         data() {
             return{
                 name: "Vinicius",
