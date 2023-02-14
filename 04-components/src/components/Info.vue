@@ -33,17 +33,20 @@
 </template>
 
 <script>
-    import Picture from './Picture.vue';
+import Picture from './Picture.vue';
     export default{
         name: 'Info',
         components: {
             Picture
         },
+        props:{
+            email: String,
+            // Declaração do que o componente vai receber
+        },
         data(){
             return{
                 working: false,
                 showEmail: true,
-                email: 'viniciusmaiamarinho1@gmail.com',
                 meu_link: 'https://google.com',
                 //v-bind faz ligação entre um dado dinâmico e o que está no template
                 button_text: 'Hide email',

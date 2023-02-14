@@ -1,7 +1,8 @@
 <template>
     <div>
         <h2>That's the description of the person: {{ name }}</h2>
-        <Info />
+        <Info :email="email" />
+        <!-- Passagem do dado (props) que irá para o componente -->
         <Form />
     </div>
 </template>
@@ -19,7 +20,8 @@
 
         data(){
             return{
-                name: 'Vinicius'
+                name: 'Vinicius',
+                email: 'viniciusmaiamarinho1@gmail.com'
             }
         }
     }

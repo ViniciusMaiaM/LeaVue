@@ -24,7 +24,7 @@
         },
         methods: {
             lifeCycle() {
-                alert("Array!");
+                console.log("Array!");
             }
         }
     }
