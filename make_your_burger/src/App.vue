@@ -31,7 +31,6 @@
 	}
 
 	.main-container{
-		margin: 50px;
 		min-height: 250px;
 	}
 
