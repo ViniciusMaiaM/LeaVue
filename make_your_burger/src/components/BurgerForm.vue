@@ -85,7 +85,7 @@ import Message from './Message.vue';
                 const res = await req.json()
                 console.log(res)
 
-                this.msg = "Pedido realizado com sucesso!"
+                this.msg = `Pedido Nº ${res.id} realizado com sucesso!`
 
                 setTimeout(() => this.msg = "", 3000)
 
