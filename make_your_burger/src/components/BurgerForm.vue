@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Componente de mensagem</p>
+        <Message :msg="msg" v-show="msg"/>
         <div>
             <form id="burger-form" @submit="createBurger">
                 <div class="input-container">
@@ -37,10 +37,12 @@
 </template>
 
 <script>
+import Message from './Message.vue';
     export default{
         name: "BurgerForm",
-        data(){
-            return{
+
+        data() {
+            return {
                 paes: null,
                 carnes: null,
                 opcionaisdata: null,
@@ -48,20 +50,21 @@
                 pao: null,
                 carne: null,
                 opcionais: [],
+                status: "Solicitado",
                 msg: null
             }
         },
         methods: {
-            async getIngredientes(){
-                const req = await fetch("http://localhost:3000/ingredientes");
-                const data = await req.json();
-
-                this.paes = data.paes;
-                this.carnes = data.carnes;
-                this.opcionaisdata = data.opcionais;
+            async getIngredientes() {
+                const req = await fetch('http://localhost:3000/ingredientes')
+                const data = await req.json()
+                this.paes = data.paes
+                this.carnes = data.carnes
+                this.opcionaisdata = data.opcionais
             },
-            async createBurger(e){
-                e.preventeDefault();
+
+            async createBurger(e) {
+                e.preventDefault()
                 
                 const data = {
                     nome: this.nome,
@@ -69,27 +72,36 @@
                     pao: this.pao,
                     opcionais: Array.from(this.opcionais),
                     status: "Solicitado"
-                };
-
-                const dataJson = JSON.stringify(data);
-
-                const req = await fetch("http://localhost:3000/burges", {
+                }
+                
+                const dataJson = JSON.stringify(data)    
+                
+                const req = await fetch("http://localhost:3000/burgers", {
                     method: "POST",
-                    headers: {"Content-Type": "application/json"},
+                    headers: { "Content-Type" : "application/json" },
                     body: dataJson
                 });
+                
+                const res = await req.json()
+                console.log(res)
 
-                const res = await req.json();
+                this.msg = "Pedido realizado com sucesso!"
 
-                this.nome = "";
-                this.carne = "";
-                this.pao = "";
-                this.opcionais = "";
-            },
+                setTimeout(() => this.msg = "", 3000)
+
+                this.nome = ""
+                this.carne = ""
+                this.pao = ""
+                this.opcionais = []
+            }
         },
 
-        mounted(){
+        mounted () {
             this.getIngredientes()
+        },
+
+        components: {
+            Message
         }
     }
 </script>
